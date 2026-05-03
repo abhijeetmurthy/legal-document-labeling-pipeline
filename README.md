@@ -1,34 +1,32 @@
 # Legal Document Labeling Pipeline
 
-Generic machine-learning pipeline for multi-label legal document classification.
+Enterprise-style ML pipeline for legal document multi-label classification.
 
-## Pipeline Stages
+## Structure
+- `src/`: training/inference modules.
+- `data/`: example JSONL datasets.
+- `saved/`: trained artifacts and metrics.
+- `templates/`: web templates.
+- `configs/`: environment templates.
+- `scripts/`: bootstrap + run entrypoints.
+- `docs/`: architecture docs.
 
-1. Ingest: load JSONL training, test, and label corpora from `data/`.
-2. Prepare: tokenize text and build vocab/label mappings.
-3. Train: fit the label generation model using `src/training.py`.
-4. Evaluate: track metrics and write summary stats.
-5. Serve: expose inference/web routes from `src/api.py` and `src/web.py`.
+## Quickstart
+```bash
+./scripts/bootstrap.sh
+pip install -r requirements.txt
+./scripts/run_pipeline.sh train
+```
 
-## Repository Layout
+## Run Modes
+- `./scripts/run_pipeline.sh train`
+- `./scripts/run_pipeline.sh api`
+- `./scripts/run_pipeline.sh web`
 
-- `src/`: training and inference pipeline modules.
-- `data/`: input data files.
-- `saved/`: model checkpoints and metrics outputs.
-- `templates/`: web UI templates.
-
-## Example Datasets (Current)
-
+## Example Datasets
 - `data/train.jsonl`
 - `data/test.jsonl`
 - `data/doc.jsonl`
 - `data/Train-Sent.jsonl`
 - `data/Test-Doc.jsonl`
 - `data/Labels.jsonl`
-
-## Run
-
-```bash
-pip install -r requirements.txt
-python src/main.py
-```
