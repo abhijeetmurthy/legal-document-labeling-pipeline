@@ -1,10 +1,6 @@
-spacy
-spacy-model-en_core_web_sm
-json
-tqdm
-pytorch
-itertools
-collections
-gensim
-pickle
-flask
+flask>=2.2
+gensim>=4.3
+numpy>=1.23
+spacy>=3.6
+torch>=2.0
+tqdm>=4.65
